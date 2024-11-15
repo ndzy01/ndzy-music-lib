@@ -107,8 +107,7 @@ const musicTaskInit = async (directory)=>{
         recursive: true
     });
     let maxId;
-    const data = await service('/music?sort=id%2CDESC&limit=1');
-    console.log('------ndzy------', data, '------ndzy------');
+    const { data } = await service('/music?sort=id%2CDESC&limit=1');
     if (data) maxId = data[0].id;
     console.log('------ndzy------', '当前最大music记录id: ' + maxId, data, '------ndzy------');
     await init(directory, {

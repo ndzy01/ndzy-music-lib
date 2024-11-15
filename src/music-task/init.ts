@@ -38,8 +38,7 @@ export const musicTaskInit = async (directory: string) => {
   }
 
   let maxId;
-  const data: any = await service('/music?sort=id%2CDESC&limit=1');
-  console.log('------ndzy------', data, '------ndzy------');
+  const { data } = await service('/music?sort=id%2CDESC&limit=1');
 
   if (data) {
     maxId = data[0].id;
