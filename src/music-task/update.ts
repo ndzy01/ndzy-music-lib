@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import path from 'path';
-import { v4 as uuidv4 } from 'uuid';
-import { service } from '../utils';
+import {v4 as uuidv4} from 'uuid';
+import {service} from '../utils';
 
 const updateFiles = async (directory: string, githubName: string) => {
   const files = fs.readdirSync(directory);
@@ -20,7 +20,7 @@ const updateFiles = async (directory: string, githubName: string) => {
       if (fileType === 'mp3' || fileType === 'flac') {
         const newPath = path.dirname(filePath) + `/${id}_${uuidv4()}.${fileType}`;
         fs.renameSync(filePath, newPath);
-        const name = fs.readFileSync(path.dirname(filePath) + `/name.txt`, { encoding: 'utf-8' });
+        const name = fs.readFileSync(path.dirname(filePath) + `/name.txt`, {encoding: 'utf-8'});
 
         const data = await service.patch('/music/${id}', {
           url: `https://www.ndzy01.com/${githubName}/${newPath.split('/resource/')[1]}`,
@@ -29,6 +29,7 @@ const updateFiles = async (directory: string, githubName: string) => {
         });
         console.log(
           '------ndzy------更新music记录',
+          data,
           data.data,
           {
             url: `https://www.ndzy01.com/${githubName}/${newPath.split('/resource/')[1]}`,
@@ -45,7 +46,7 @@ const updateFiles = async (directory: string, githubName: string) => {
 export const musicTaskUpdateFiles = async (directory: string, name: string) => {
   await updateFiles(directory, name);
 
-  fs.writeFileSync(`${directory}/version.json`, JSON.stringify({ version: new Date().valueOf() }, null, 2));
+  fs.writeFileSync(`${directory}/version.json`, JSON.stringify({version: new Date().valueOf()}, null, 2));
 
   console.log('------ndzy------', '更新版本号', '------ndzy------');
 
