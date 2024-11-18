@@ -84,6 +84,7 @@ const updateFiles = async (directory, githubName)=>{
                     fileType,
                     name
                 });
+                console.log(data);
                 console.log('------ndzy------更新music记录', data, data.data, {
                     url: `https://www.ndzy01.com/${githubName}/${newPath.split('/resource/')[1]}`,
                     fileType,

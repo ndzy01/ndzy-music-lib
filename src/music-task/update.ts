@@ -27,6 +27,7 @@ const updateFiles = async (directory: string, githubName: string) => {
           fileType,
           name,
         });
+        console.log(data)
         console.log(
           '------ndzy------更新music记录',
           data,
