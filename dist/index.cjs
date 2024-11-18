@@ -62,8 +62,11 @@ const service = external_axios_default().create({
 service.interceptors.request.use((config)=>config, (error)=>{
     Promise.reject(error).then();
 });
-service.interceptors.response.use((response)=>response.data, (error)=>{
-//
+service.interceptors.response.use((response)=>{
+    console.log(response);
+    return response.data;
+}, (error)=>{
+    console.log(error);
 });
 const musicTaskEnd = async ()=>{
     try {
