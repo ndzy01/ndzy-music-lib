@@ -10,10 +10,7 @@ const service = __WEBPACK_EXTERNAL_MODULE_axios__["default"].create({
 service.interceptors.request.use((config)=>config, (error)=>{
     Promise.reject(error).then();
 });
-service.interceptors.response.use((response)=>{
-    console.log(response);
-    return response.data;
-}, (error)=>{
+service.interceptors.response.use((response)=>response.data, (error)=>{
     console.log(error);
 });
 const musicTaskEnd = async ()=>{
@@ -82,13 +79,12 @@ const updateFiles = async (directory, githubName)=>{
                 const name = __WEBPACK_EXTERNAL_MODULE_fs__.readFileSync(__WEBPACK_EXTERNAL_MODULE_path__["default"].dirname(filePath) + "/name.txt", {
                     encoding: 'utf-8'
                 });
-                const data = await service.patch('/music/${id}', {
+                const data = await service.patch(`/music/${id}`, {
                     url: `https://www.ndzy01.com/${githubName}/${newPath.split('/resource/')[1]}`,
                     fileType,
                     name
                 });
-                console.log(data);
-                console.log('------ndzy------更新music记录', data, data.data, {
+                console.log('------ndzy------更新music记录', data.data, {
                     url: `https://www.ndzy01.com/${githubName}/${newPath.split('/resource/')[1]}`,
                     fileType,
                     name

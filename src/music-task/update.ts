@@ -22,15 +22,13 @@ const updateFiles = async (directory: string, githubName: string) => {
         fs.renameSync(filePath, newPath);
         const name = fs.readFileSync(path.dirname(filePath) + `/name.txt`, {encoding: 'utf-8'});
 
-        const data = await service.patch('/music/${id}', {
+        const data = await service.patch(`/music/${id}`, {
           url: `https://www.ndzy01.com/${githubName}/${newPath.split('/resource/')[1]}`,
           fileType,
           name,
         });
-        console.log(data)
         console.log(
           '------ndzy------更新music记录',
-          data,
           data.data,
           {
             url: `https://www.ndzy01.com/${githubName}/${newPath.split('/resource/')[1]}`,

@@ -17,7 +17,6 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
   (response) => {
-    console.log(response)
     return response.data;
   },
   (error) => {
