@@ -33,8 +33,6 @@ const init = async (directory: string, idObj: { maxId: number }) => {
 };
 
 export const musicTaskInit = async (directory: string) => {
-  console.log('------ndzy------', directory, '------ndzy------');
-
   if (!fs.existsSync(directory)) {
     fs.mkdirSync(directory, { recursive: true });
   }
@@ -46,7 +44,7 @@ export const musicTaskInit = async (directory: string) => {
     maxId = data[0].id;
   }
 
-  console.log('------ndzy------', '当前最大music记录id: ' + maxId, data, '------ndzy------');
+  console.log('------ndzy------', 'music 当前最大 id: ' + maxId, '------ndzy------');
 
   await init(directory, { maxId });
 
