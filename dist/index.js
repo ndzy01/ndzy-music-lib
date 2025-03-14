@@ -47,6 +47,7 @@ const init = async (directory, idObj)=>{
     }
 };
 const musicTaskInit = async (directory)=>{
+    console.log('------ndzy------', directory, '------ndzy------');
     if (!__WEBPACK_EXTERNAL_MODULE_fs__.existsSync(directory)) __WEBPACK_EXTERNAL_MODULE_fs__.mkdirSync(directory, {
         recursive: true
     });

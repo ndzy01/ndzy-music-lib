@@ -33,6 +33,8 @@ const init = async (directory: string, idObj: { maxId: number }) => {
 };
 
 export const musicTaskInit = async (directory: string) => {
+  console.log('------ndzy------', directory, '------ndzy------');
+
   if (!fs.existsSync(directory)) {
     fs.mkdirSync(directory, { recursive: true });
   }

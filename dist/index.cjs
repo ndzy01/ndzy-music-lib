@@ -48,9 +48,9 @@ var __webpack_require__ = {};
 __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-    musicTaskEnd: ()=>/* reexport */ musicTaskEnd,
+    musicTaskUpdateFiles: ()=>/* reexport */ musicTaskUpdateFiles,
     musicTaskInit: ()=>/* reexport */ musicTaskInit,
-    musicTaskUpdateFiles: ()=>/* reexport */ musicTaskUpdateFiles
+    musicTaskEnd: ()=>/* reexport */ musicTaskEnd
 });
 const external_axios_namespaceObject = require("axios");
 var external_axios_default = /*#__PURE__*/ __webpack_require__.n(external_axios_namespaceObject);
@@ -103,6 +103,7 @@ const init = async (directory, idObj)=>{
     }
 };
 const musicTaskInit = async (directory)=>{
+    console.log('------ndzy------', directory, '------ndzy------');
     if (!external_fs_namespaceObject.existsSync(directory)) external_fs_namespaceObject.mkdirSync(directory, {
         recursive: true
     });
@@ -158,7 +159,7 @@ const musicTaskUpdateFiles = async (directory, name)=>{
     console.log('------ndzy------', '更新完成', '------ndzy------');
 };
 var __webpack_export_target__ = exports;
-for(var i in __webpack_exports__)__webpack_export_target__[i] = __webpack_exports__[i];
+for(var __webpack_i__ in __webpack_exports__)__webpack_export_target__[__webpack_i__] = __webpack_exports__[__webpack_i__];
 if (__webpack_exports__.__esModule) Object.defineProperty(__webpack_export_target__, '__esModule', {
     value: true
 });
